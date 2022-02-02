@@ -3,19 +3,18 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:remede/main.dart';
 
-class SecretariatMedical extends StatefulWidget {
-  late TabController controller;
-  late State etat;
+class Recherche extends StatefulWidget {
+  late String titre;
 
-  SecretariatMedical(this.controller, this.etat);
+  Recherche(this.titre);
 
   @override
   State<StatefulWidget> createState() {
-    return _SecretariatMedical();
+    return _Recherche();
   }
 }
 
-class _SecretariatMedical extends State<SecretariatMedical> {
+class _Recherche extends State<Recherche> {
   //Remede.bool Remede.b9 = true;
   final StreamController<String> _streamController = StreamController<String>();
   //
@@ -65,8 +64,27 @@ class _SecretariatMedical extends State<SecretariatMedical> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const SizedBox(
-          height: 15,
+        Container(
+          height: 45,
+          padding: EdgeInsets.only(
+            left: 20,
+            right: 5,
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text("Recherche dans ${widget.titre}"),
+              IconButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                icon: Icon(
+                  Icons.close,
+                  color: Colors.black,
+                ),
+              )
+            ],
+          ),
         ),
         Padding(
           padding: const EdgeInsets.only(
@@ -85,7 +103,7 @@ class _SecretariatMedical extends State<SecretariatMedical> {
             },
             decoration: InputDecoration(
               border: OutlineInputBorder(),
-              hintText: 'Enter a search term',
+              hintText: 'Tapez un mot',
               prefixIcon: Icon(Icons.search),
             ),
           ),
@@ -113,13 +131,19 @@ class _SecretariatMedical extends State<SecretariatMedical> {
               //
               return ListView(
                 children: List.generate(liste.length, (i) {
-                  return Card(
-                    elevation: 2,
-                    shadowColor: Colors.teal,
-                    child: SizedBox(
-                      height: 55,
-                      child: Column(
-                        children: [Text(liste[i]["id"])],
+                  return InkWell(
+                    onTap: () {
+                      Remede.Transporteur["vue"] == 0;
+                      Navigator.of(context).pop();
+                    },
+                    child: Card(
+                      elevation: 2,
+                      shadowColor: Colors.teal,
+                      child: SizedBox(
+                        height: 55,
+                        child: Column(
+                          children: [Text(liste[i]["id"])],
+                        ),
                       ),
                     ),
                   );
@@ -131,7 +155,12 @@ class _SecretariatMedical extends State<SecretariatMedical> {
         SizedBox(
           height: 10,
         ),
-        Padding(
+      ],
+    );
+  }
+}
+/*
+Padding(
           padding: EdgeInsets.only(
             left: 10,
             right: 10,
@@ -178,7 +207,4 @@ class _SecretariatMedical extends State<SecretariatMedical> {
             ),
           ),
         ),
-      ],
-    );
-  }
-}
+*/

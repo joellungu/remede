@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:humanitarian_icons/humanitarian_icons.dart';
 import 'package:remede/main.dart';
 import 'package:decorated_icon/decorated_icon.dart';
 import 'activites/activite.dart';
@@ -31,11 +32,12 @@ class _Accueil extends State<Accueil> {
   ];
 
   List menuIcons = [
-    Icons.pregnant_woman_outlined,
+    HumanitarianIcons.woman, //Icons.pregnant_woman_outlined,
     Icons.child_care_outlined,
-    Icons.biotech_outlined,
-    Icons.medical_services_outlined,
-    Icons.airline_seat_flat_angled_outlined,
+    Icons.medical_services_outlined, //Icons.biotech_outlined,
+    HumanitarianIcons.health,
+    //Icons.airline_seat_flat_angled_outlined, //medical_services_outlined,
+    HumanitarianIcons.ambulance, //airline_seat_flat_angled_outlined
     Icons.add
   ];
 

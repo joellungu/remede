@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:remede/main.dart';
+import 'package:remede/vues/recherche.dart';
 
 class MenuLateral extends StatefulWidget {
   late TabController controller;
@@ -57,7 +58,7 @@ class _MenuLateral extends State<MenuLateral> {
             ],
           ),
         ),
-        Divider(),
+        Divider(), //
         ListTile(
           onTap: () {
             setState(() {
@@ -72,8 +73,47 @@ class _MenuLateral extends State<MenuLateral> {
             });
             widget.controller.animateTo(1);
             widget.etat.setState(() {
+              //
+              Remede.Transporteur["soustitre"] = "Nouveau dossier médical";
+              Remede.Transporteur["vue"] = 1;
+            });
+          },
+          leading: Icon(
+            Icons.list_alt_outlined,
+            color: Colors.teal,
+          ),
+          title: Text(
+            "Nouveau dossier médical",
+            style: TextStyle(
+              color: Colors.teal,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+        ListTile(
+          onTap: () {
+            setState(() {
+              Remede.b1 = true;
+              Remede.b2 = false;
+              Remede.b3 = false;
+              Remede.b4 = false;
+              Remede.b5 = false;
+              Remede.b6 = false;
+              Remede.b7 = false;
+              Remede.b8 = false;
+            });
+            showDialog(
+                context: context,
+                builder: (context) {
+                  return Material(
+                    child: Recherche("Sécretariat Medical"),
+                  );
+                });
+            print("_______________________________________________________");
+            widget.etat.setState(() {
               Remede.Transporteur["soustitre"] = "Sécretariat Medical";
             });
+            widget.controller.animateTo(1);
           },
           leading: Icon(
             Icons.airline_seat_recline_normal_outlined,

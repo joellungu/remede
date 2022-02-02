@@ -25,7 +25,7 @@ void main() {
 
 Future<void> load() async {
   Timer(const Duration(seconds: 3), () async {
-    if (false) {
+    if (true) {
       runApp(
         Remede(
           vue: Login(),
@@ -44,7 +44,10 @@ class Remede extends StatelessWidget {
 
   Widget? vue;
   static Conts conts = Conts();
-  static Map<String, dynamic> Transporteur = {"soustitre":"Sécretariat Medical"};
+  static Map<String, dynamic> Transporteur = {
+    "soustitre": "Nouveau dossier médical",
+    "vue": 1,
+  };
   static bool b1 = true;
   static bool b2 = false;
   static bool b3 = false;

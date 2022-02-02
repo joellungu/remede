@@ -5,9 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:remede/main.dart';
 import 'package:remede/vues/menulateral/menu.dart';
 import 'package:remede/vues/secretariat.dart';
+import 'package:remede/vues/vouveaudossier/nouveaudossier.dart';
 
 class Activite extends StatefulWidget {
-  Activite(this.titre,this.icon);
+  Activite(this.titre, this.icon);
 
   String? titre;
   late IconData icon;
@@ -69,6 +70,7 @@ class _Activite extends State<Activite> with TickerProviderStateMixin {
               RichText(
                 text: TextSpan(
                   text: widget.titre! + "\n",
+                  
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 20,
@@ -127,7 +129,7 @@ class _Activite extends State<Activite> with TickerProviderStateMixin {
                 //text: "Réception",
                 child: Row(
                   children: [
-                    Icon(Icons.how_to_reg_outlined),
+                    Icon(Icons.content_paste_off_outlined),//how_to_reg_outlined),
                     SizedBox(
                       width: 20,
                     ),
@@ -155,7 +157,9 @@ class _Activite extends State<Activite> with TickerProviderStateMixin {
           controller: controller,
           children: [
             menu,
-            secretariatMedical,
+            Remede.Transporteur["vue"] == 1
+                ? NouveauDossier()
+                : Icon(Icons.directions_bike), //
             Icon(Icons.directions_bike),
             Icon(Icons.directions_bike),
           ],
