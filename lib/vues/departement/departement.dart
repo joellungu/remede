@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:humanitarian_icons/humanitarian_icons.dart';
 import 'package:remede/main.dart';
 import 'package:decorated_icon/decorated_icon.dart';
+import 'package:remede/vues/activites/activite.dart';
 import 'package:remede/vues/menulateral/menu.dart';
 import 'package:remede/vues/vouveaudossier/nouveaudossier.dart';
 
@@ -295,7 +296,14 @@ class _Departement extends State<Departement> {
                     height: 20,
                   ),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => Activite(
+                              "MDOIDN IUGD D Y D UDY ", "4561 5648 4664 8455"),
+                        ),
+                      );
+                    },
                     child: styleBouton(),
                   ),
                   InkWell(

@@ -3,15 +3,16 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:remede/main.dart';
+import 'package:remede/vues/consultation/consultation.dart';
 import 'package:remede/vues/menulateral/menu.dart';
 import 'package:remede/vues/secretariat.dart';
 import 'package:remede/vues/vouveaudossier/nouveaudossier.dart';
 
 class Activite extends StatefulWidget {
-  Activite(this.titre, this.icon);
+  Activite(this.nom, this.matricule);
 
-  String? titre;
-  late IconData icon;
+  String? nom;
+  String? matricule;
 
   @override
   State<StatefulWidget> createState() {
@@ -21,11 +22,22 @@ class Activite extends StatefulWidget {
 
 class _Activite extends State<Activite> with TickerProviderStateMixin {
   late TabController controller;
-  //String sousTitre = "Sécretariat Medical";
-  //final StreamController<String> _streamController = StreamController<String>();
-  //
-  late Widget menu;
-  late Widget secretariatMedical;
+
+  String dropdownValue = "Profile";
+  String? selectedValue;
+  List<String> items = [
+    'Profile',
+    'Parametre',
+    'Deconnexion',
+  ];
+  List<IconData> itemsIcons = [
+    CupertinoIcons.person,
+    CupertinoIcons.gear,
+    Icons.close_fullscreen_outlined,
+  ];
+
+  DateTime date = DateTime.now();
+
   //
   @override
   void dispose() {
@@ -38,10 +50,6 @@ class _Activite extends State<Activite> with TickerProviderStateMixin {
   void initState() {
     controller = TabController(length: 4, vsync: this);
     //
-    secretariatMedical = SecretariatMedical(controller, this);
-    //
-    menu = MenuLateral();
-    //
     super.initState();
   }
 
@@ -51,49 +59,77 @@ class _Activite extends State<Activite> with TickerProviderStateMixin {
       length: 4,
       child: Scaffold(
         appBar: AppBar(
-          leading: IconButton(
-            onPressed: () {
-              //
-              Navigator.of(context).pop();
-            },
-            icon: Icon(Icons.arrow_back_ios),
-          ),
-          title: Row(
-            children: [
-              Icon(
-                widget.icon,
-                size: 40,
-              ),
-              SizedBox(
-                width: 20,
-              ),
-              RichText(
-                text: TextSpan(
-                  text: widget.titre! + "\n",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
+          title: RichText(
+            text: TextSpan(
+              text: "${widget.nom}\n",
+              children: [
+                TextSpan(
+                  text: widget.matricule,
+                  style: const TextStyle(
+                    color: Colors.white60,
+                    fontSize: 15,
                     fontWeight: FontWeight.bold,
                   ),
-                  children: [
-                    TextSpan(
-                      //Transporteur
-                      text: Remede.Transporteur["soustitre"],
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 17,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
                 ),
-              )
-            ],
+              ],
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
           ),
+          centerTitle: true,
+          actions: [
+            DropdownButtonHideUnderline(
+              child: DropdownButton<String?>(
+                  //value: dropdownValue,
+                  icon: const Padding(
+                    padding: EdgeInsets.only(right: 20),
+                    child: Icon(
+                      CupertinoIcons.person,
+                      size: 30,
+                      color: Colors.white,
+                    ),
+                  ),
+                  onChanged: (String? newValue) {
+                    setState(() {
+                      selectedValue = newValue!;
+                    });
+                  },
+                  items: List.generate(items.length, (index) {
+                    return DropdownMenuItem<String>(
+                      value: "$index",
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Icon(
+                            itemsIcons[index],
+                            color: Colors.black,
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            items[index],
+                            style: const TextStyle(
+                              fontSize: 14,
+                            ),
+                          )
+                        ],
+                      ),
+                    );
+                  })),
+            ),
+          ],
           bottom: TabBar(
             isScrollable: true,
             controller: controller,
-            indicatorColor: Colors.black,
+            indicatorColor: Colors.white,
+            unselectedLabelStyle: const TextStyle(
+              fontWeight: FontWeight.normal,
+              color: Colors.white10,
+            ),
             tabs: [
               Tab(
                 //icon: Icon(Icons.directions_car),
@@ -106,7 +142,7 @@ class _Activite extends State<Activite> with TickerProviderStateMixin {
                     SizedBox(
                       width: 20,
                     ),
-                    Text("Menu")
+                    Text("CONSULTATION")
                   ],
                 ),
               ),
@@ -119,7 +155,7 @@ class _Activite extends State<Activite> with TickerProviderStateMixin {
                     SizedBox(
                       width: 20,
                     ),
-                    Text(Remede.Transporteur["soustitre"])
+                    Text("ANAMENESES")
                   ],
                 ),
               ),
@@ -133,7 +169,7 @@ class _Activite extends State<Activite> with TickerProviderStateMixin {
                     SizedBox(
                       width: 20,
                     ),
-                    Text("Réception")
+                    Text("LABORATOIRE")
                   ],
                 ),
               ),
@@ -146,7 +182,7 @@ class _Activite extends State<Activite> with TickerProviderStateMixin {
                     SizedBox(
                       width: 20,
                     ),
-                    Text("Rendez-vous")
+                    Text("ISSUE")
                   ],
                 ),
               ),
@@ -156,10 +192,8 @@ class _Activite extends State<Activite> with TickerProviderStateMixin {
         body: TabBarView(
           controller: controller,
           children: [
-            menu,
-            Remede.Transporteur["vue"] == 1
-                ? NouveauDossier()
-                : Icon(Icons.directions_bike), //
+            Consultation(widget.nom, widget.matricule),
+            Icon(Icons.directions_bike),
             Icon(Icons.directions_bike),
             Icon(Icons.directions_bike),
           ],
