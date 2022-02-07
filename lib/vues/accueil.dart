@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:humanitarian_icons/humanitarian_icons.dart';
 import 'package:remede/main.dart';
 import 'package:decorated_icon/decorated_icon.dart';
+import 'package:remede/vues/departement/departement.dart';
 import 'activites/activite.dart';
 import 'menulateral/menu.dart';
 import 'vouveaudossier/nouveaudossier.dart';
@@ -172,7 +173,28 @@ class _Accueil extends State<Accueil> {
                         )
                       ],
                     ),
-                  )
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => Departement("MEDECINE INTERNE"),
+                        ),
+                      );
+                    },
+                    child: styleBouton("MEDECINE INTERNE"),
+                  ),
+                  InkWell(
+                    onTap: () {},
+                    child: styleBouton("MEDECINE INTERNE"),
+                  ),
+                  InkWell(
+                    onTap: () {},
+                    child: styleBouton("MEDECINE INTERNE"),
+                  ),
                 ],
               ),
             )
@@ -228,6 +250,72 @@ class _Accueil extends State<Accueil> {
             },
           );
         },
+      ),
+    );
+  }
+
+  Widget styleBouton(String titre) {
+    return Card(
+      elevation: 1,
+      child: Container(
+        height: 80,
+        //color: Color.fromRGBO(21, 114, 71, 1),
+        margin: EdgeInsets.zero,
+        child: Stack(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 10),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  titre,
+                  style: const TextStyle(
+                    color: Color.fromRGBO(
+                      21,
+                      114,
+                      71,
+                      1,
+                    ), //Colors.black,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(right: 120),
+              child: Align(
+                alignment: Alignment.centerRight,
+                child: Container(
+                  height: 40,
+                  width: 40,
+                  alignment: Alignment.center,
+                  child: const Text(
+                    "35",
+                    style: TextStyle(
+                      color: Color.fromRGBO(21, 114, 71, 1), //Colors.black,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                ),
+              ),
+            ),
+            const Padding(
+              padding: EdgeInsets.only(right: 20),
+              child: Align(
+                alignment: Alignment.centerRight,
+                child: Icon(
+                  Icons.arrow_forward_ios,
+                  color: Color.fromRGBO(21, 114, 71, 1),
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
