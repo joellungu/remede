@@ -8,7 +8,7 @@ class MenuLateral extends StatefulWidget {
   late TabController controller;
   late State etat;
 
-  MenuLateral(this.controller, this.etat);
+  MenuLateral();
 
   @override
   State<StatefulWidget> createState() {

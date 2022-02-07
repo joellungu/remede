@@ -4,15 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:remede/vues/accueil.dart';
 import 'package:remede/vues/splash.dart';
-
 import 'const/constante.dart';
 import 'vues/login/login.dart';
 
 void main() {
-  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-      systemNavigationBarColor: Colors.teal, // navigation bar color
-      statusBarColor: Colors.teal // status bar color
-      ));
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      systemNavigationBarColor:
+          Color.fromRGBO(21, 114, 71, 1), // navigation bar color
+      statusBarColor: Color.fromRGBO(21, 114, 71, 1), // status bar color
+    ),
+  );
   //
   runApp(
     Remede(
@@ -57,6 +59,24 @@ class Remede extends StatelessWidget {
   static bool b7 = false;
   static bool b8 = false;
 
+  //MaterialColor gojekSwatch = Colours.swatch('#157247');
+
+  Map<int, Color> couleur = {
+    50: Color.fromRGBO(21, 114, 71, .1),
+    100: Color.fromRGBO(21, 114, 71, .2),
+    200: Color.fromRGBO(21, 114, 71, .3),
+    300: Color.fromRGBO(21, 114, 71, .4),
+    400: Color.fromRGBO(21, 114, 71, .5),
+    500: Color.fromRGBO(21, 114, 71, .6),
+    600: Color.fromRGBO(21, 114, 71, .7),
+    700: Color.fromRGBO(21, 114, 71, .8),
+    800: Color.fromRGBO(21, 114, 71, .9),
+    900: Color.fromRGBO(21, 114, 71, 1),
+  };
+  //
+
+//MaterialColor colorCustom = MaterialColor(0xFF880E4F, couleur);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -66,7 +86,8 @@ class Remede extends StatelessWidget {
         appBarTheme: const AppBarTheme(
           systemOverlayStyle: SystemUiOverlayStyle.light,
         ),
-        primarySwatch: Colors.teal,
+        primarySwatch:
+            MaterialColor(const Color.fromRGBO(21, 114, 71, 1).value, couleur),
       ),
       home: vue,
     );

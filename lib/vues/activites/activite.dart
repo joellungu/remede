@@ -40,7 +40,7 @@ class _Activite extends State<Activite> with TickerProviderStateMixin {
     //
     secretariatMedical = SecretariatMedical(controller, this);
     //
-    menu = MenuLateral(controller, this);
+    menu = MenuLateral();
     //
     super.initState();
   }
@@ -70,7 +70,6 @@ class _Activite extends State<Activite> with TickerProviderStateMixin {
               RichText(
                 text: TextSpan(
                   text: widget.titre! + "\n",
-                  
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 20,
@@ -129,7 +128,8 @@ class _Activite extends State<Activite> with TickerProviderStateMixin {
                 //text: "Réception",
                 child: Row(
                   children: [
-                    Icon(Icons.content_paste_off_outlined),//how_to_reg_outlined),
+                    Icon(Icons
+                        .content_paste_off_outlined), //how_to_reg_outlined),
                     SizedBox(
                       width: 20,
                     ),
