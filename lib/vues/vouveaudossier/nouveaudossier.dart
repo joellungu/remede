@@ -1001,8 +1001,8 @@ class _NouveauDossier extends State<NouveauDossier> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(Icons.save_alt_outlined),
-                      SizedBox(
+                      const Icon(Icons.save_alt_outlined),
+                      const SizedBox(
                         width: 10,
                       ),
                       Text(

@@ -47,6 +47,7 @@ class _Accueil extends State<Accueil> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Hopital d'à coté"),
+        leading: IconButton(icon: Icon(Icons.window_outlined),),
         centerTitle: true,
       ),
       body: Padding(
