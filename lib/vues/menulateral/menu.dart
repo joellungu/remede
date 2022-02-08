@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:remede/main.dart';
 import 'package:remede/vues/recherche.dart';
+import 'package:remede/vues/vouveaudossier/nouveaudossier.dart';
 
 class MenuLateral extends StatefulWidget {
   late TabController controller;
@@ -71,12 +72,51 @@ class _MenuLateral extends State<MenuLateral> {
               Remede.b7 = false;
               Remede.b8 = false;
             });
-            widget.controller.animateTo(1);
-            widget.etat.setState(() {
-              //
-              Remede.Transporteur["soustitre"] = "Nouveau dossier médical";
-              Remede.Transporteur["vue"] = 1;
-            });
+            showDialog(
+              context: context,
+              builder: (context) {
+                return Material(
+                  child: Column(
+                    children: [
+                      Container(
+                        color: const Color.fromRGBO(21, 114, 71, 1),
+                        //height: 40,
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                              left: 20, right: 15, top: 20, bottom: 10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const Text(
+                                "Nouveau dossier médical",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              IconButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                icon: const Icon(
+                                  Icons.close,
+                                  color: Colors.white,
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: NouveauDossier(),
+                      )
+                    ],
+                  ),
+                );
+              },
+            );
           },
           leading: Icon(
             Icons.list_alt_outlined,
@@ -110,7 +150,7 @@ class _MenuLateral extends State<MenuLateral> {
                   );
                 });
             print("_______________________________________________________");
-            widget.etat.setState(() {
+            (() {
               Remede.Transporteur["soustitre"] = "Sécretariat Medical";
             });
             widget.controller.animateTo(1);
@@ -140,7 +180,7 @@ class _MenuLateral extends State<MenuLateral> {
               Remede.b8 = false;
             });
             widget.controller.animateTo(1);
-            widget.etat.setState(() {
+            (() {
               Remede.Transporteur["soustitre"] = "Consultation";
             });
             //
@@ -170,7 +210,7 @@ class _MenuLateral extends State<MenuLateral> {
               Remede.b8 = false;
             });
             widget.controller.animateTo(1);
-            widget.etat.setState(() {
+            (() {
               Remede.Transporteur["soustitre"] = "Facturation";
             });
             //
@@ -200,7 +240,7 @@ class _MenuLateral extends State<MenuLateral> {
               Remede.b8 = false;
             });
             widget.controller.animateTo(1);
-            widget.etat.setState(() {
+            (() {
               Remede.Transporteur["soustitre"] = "Pharmacie";
             });
             //
@@ -230,7 +270,7 @@ class _MenuLateral extends State<MenuLateral> {
               Remede.b8 = false;
             });
             widget.controller.animateTo(1);
-            widget.etat.setState(() {
+            (() {
               Remede.Transporteur["soustitre"] = "Laboratoire";
             });
             //
@@ -260,7 +300,7 @@ class _MenuLateral extends State<MenuLateral> {
               Remede.b8 = false;
             });
             widget.controller.animateTo(1);
-            widget.etat.setState(() {
+            (() {
               Remede.Transporteur["soustitre"] = "Imagerie médical";
             });
             //
@@ -290,7 +330,7 @@ class _MenuLateral extends State<MenuLateral> {
               Remede.b8 = false;
             });
             widget.controller.animateTo(1);
-            widget.etat.setState(() {
+            (() {
               Remede.Transporteur["soustitre"] = "Médecine legale";
             });
             //
@@ -321,7 +361,7 @@ class _MenuLateral extends State<MenuLateral> {
             });
             //widget.streamController.sink.add('Salut comment?');
             widget.controller.animateTo(1);
-            widget.etat.setState(() {
+            (() {
               Remede.Transporteur["soustitre"] = "Hospitalisation";
             });
             //

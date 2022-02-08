@@ -137,83 +137,122 @@ class _Departement extends State<Departement> {
                   onTap: () {
                     showDialog<String>(
                       context: context,
-                      builder: (BuildContext context) => AlertDialog(
-                        title: Container(
-                          //height: 40,
+                      builder: (BuildContext context) {
+                        return Material(
                           child: Padding(
-                            padding: const EdgeInsets.only(
-                                left: 0, right: 0, top: 0, bottom: 0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            padding: EdgeInsets.only(),
+                            child: Column(
                               children: [
-                                RichText(
-                                  text: TextSpan(
-                                    text: "RECEPTION\n",
-                                    children: [
-                                      TextSpan(
-                                        text:
-                                            "${date.day}/${date.month}/${date.year}/${date.hour}:${date.minute}",
-                                        style: const TextStyle(
-                                          color: Colors.grey,
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.bold,
+                                Container(
+                                  color: const Color.fromRGBO(21, 114, 71, 1),
+                                  //height: 40,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 20,
+                                        right: 15,
+                                        top: 20,
+                                        bottom: 10),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        const Text(
+                                          "CONSULTATION",
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                         ),
-                                      ),
-                                    ],
-                                    style: const TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
+                                        IconButton(
+                                          onPressed: () {
+                                            Navigator.of(context).pop();
+                                          },
+                                          icon: const Icon(
+                                            Icons.close,
+                                            color: Colors.white,
+                                          ),
+                                        )
+                                      ],
                                     ),
                                   ),
                                 ),
-                                RichText(
-                                  text: TextSpan(
-                                    text: "Hopital d'à coté\n",
-                                    children: [
-                                      TextSpan(
-                                        text: widget.departement,
-                                        style: const TextStyle(
-                                          color: Colors.grey,
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.bold,
+                                Container(
+                                  //height: 40,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(
+                                      left: 15,
+                                      right: 15,
+                                      top: 10,
+                                      bottom: 0,
+                                    ),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        RichText(
+                                          text: TextSpan(
+                                            text: "RECEPTION\n",
+                                            children: [
+                                              TextSpan(
+                                                text:
+                                                    "${date.day}/${date.month}/${date.year}/${date.hour}:${date.minute}",
+                                                style: const TextStyle(
+                                                  color: Colors.grey,
+                                                  //fontSize: 15,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                            ],
+                                            style: const TextStyle(
+                                              color: Colors.black,
+                                              //fontSize: 20,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
                                         ),
-                                      ),
-                                    ],
-                                    style: const TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
+                                        RichText(
+                                          text: TextSpan(
+                                            text: "Hopital d'à coté\n",
+                                            children: [
+                                              TextSpan(
+                                                text: widget.departement,
+                                                style: const TextStyle(
+                                                  color: Colors.grey,
+                                                  //fontSize: 15,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                            ],
+                                            style: const TextStyle(
+                                              color: Colors.black,
+                                              //fontSize: 20,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                        )
+                                      ],
                                     ),
                                   ),
-                                )
+                                ),
+                                Container(
+                                  height:
+                                      MediaQuery.of(context).size.height / 1.5,
+                                  width: MediaQuery.of(context).size.width / 1,
+                                  child: ListView(
+                                    children: [
+                                      styleBoutonPop(),
+                                      styleBoutonPop(),
+                                      styleBoutonPop(),
+                                      styleBoutonPop(),
+                                    ],
+                                  ),
+                                ),
                               ],
                             ),
                           ),
-                        ),
-                        content: Container(
-                          height: MediaQuery.of(context).size.height / 1.2,
-                          width: MediaQuery.of(context).size.width / 1.1,
-                          child: ListView(
-                            children: [
-                              styleBoutonPop(),
-                              styleBoutonPop(),
-                              styleBoutonPop(),
-                              styleBoutonPop(),
-                            ],
-                          ),
-                        ),
-                        actions: <Widget>[
-                          TextButton(
-                            onPressed: () => Navigator.pop(context, 'Cancel'),
-                            child: const Text('Fermer'),
-                          ),
-                          TextButton(
-                            onPressed: () => Navigator.pop(context, 'OK'),
-                            child: const Text('OK'),
-                          ),
-                        ],
-                      ),
+                        );
+                      },
                     );
                   },
                   child: Card(
@@ -221,7 +260,7 @@ class _Departement extends State<Departement> {
                     color: Colors.blue,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(5),
-                      side: BorderSide(
+                      side: const BorderSide(
                         color: Colors.blue,
                       ),
                     ),
@@ -400,7 +439,7 @@ class _Departement extends State<Departement> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Expanded(
-                    flex: 7,
+                    flex: 8,
                     child: Container(
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -408,14 +447,17 @@ class _Departement extends State<Departement> {
                           Icon(
                             Icons.check,
                             color: Colors.black,
+                            size: 20,
                           ),
                           Icon(
                             Icons.check_circle,
                             color: Colors.green,
+                            size: 20,
                           ),
                           Icon(
                             Icons.more_time_outlined,
                             color: Colors.red,
+                            size: 20,
                           ),
                           Container(
                             height: 15,
@@ -430,20 +472,26 @@ class _Departement extends State<Departement> {
                           SizedBox(
                             width: 5,
                           ),
-                          Text(
-                            "LDk IU GS FDY  gvg gvQUY",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
+                          Expanded(
+                            flex: 7,
+                            child: Text(
+                              "LDk IU GS FDYQUY",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                           SizedBox(
-                            width: 10,
+                            width: 5,
                           ),
-                          Text(
-                            "****-****-4562",
-                            style: TextStyle(
-                              fontWeight: FontWeight.normal,
-                              color: Colors.grey,
+                          Expanded(
+                            flex: 4,
+                            child: Text(
+                              "****-****-4562",
+                              style: TextStyle(
+                                fontWeight: FontWeight.normal,
+                                color: Colors.grey,
+                              ),
                             ),
                           ),
                         ],
@@ -458,6 +506,7 @@ class _Departement extends State<Departement> {
                         "${date.day}/${date.month}/${date.year}/${date.hour}:${date.minute}",
                         style: const TextStyle(
                           fontWeight: FontWeight.normal,
+                          fontSize: 11,
                         ),
                       ),
                     ),
@@ -476,28 +525,30 @@ class _Departement extends State<Departement> {
                   Expanded(
                     flex: 7,
                     child: Container(
-                        child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: const [
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Icon(
-                          Icons.thermostat,
-                          color: Colors.blue,
-                        ),
-                        Text("37°c"),
-                        SizedBox(
-                          width: 2,
-                        ),
-                        Text("/"),
-                        SizedBox(
-                          width: 2,
-                        ),
-                        Icon(Icons.monitor_weight),
-                        Text("50 Kg"),
-                      ],
-                    )),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: const [
+                          Icon(
+                            Icons.thermostat,
+                            color: Colors.blue,
+                            size: 20,
+                          ),
+                          Text("37°c"),
+                          SizedBox(
+                            width: 2,
+                          ),
+                          Text("/"),
+                          SizedBox(
+                            width: 2,
+                          ),
+                          Icon(
+                            Icons.monitor_weight,
+                            size: 20,
+                          ),
+                          Text("50 Kg"),
+                        ],
+                      ),
+                    ),
                   ),
                   Expanded(
                     flex: 3,
@@ -507,14 +558,17 @@ class _Departement extends State<Departement> {
                         children: const [
                           Icon(
                             Icons.map_outlined,
+                            size: 15,
                             color: Colors.grey,
                           ),
                           SizedBox(width: 10),
                           Text(
                             "Barumbu",
                             style: TextStyle(
-                                fontWeight: FontWeight.normal,
-                                color: Colors.grey),
+                              fontWeight: FontWeight.normal,
+                              fontSize: 11,
+                              color: Colors.grey,
+                            ),
                           )
                         ],
                       ),

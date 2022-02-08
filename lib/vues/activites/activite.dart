@@ -74,7 +74,7 @@ class _Activite extends State<Activite> with TickerProviderStateMixin {
               ],
               style: const TextStyle(
                 color: Colors.white,
-                fontSize: 20,
+                fontSize: 19,
                 fontWeight: FontWeight.bold,
               ),
             ),
