@@ -22,7 +22,7 @@ class _Login extends State<Login> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(
-              CupertinoIcons.person,
+              Icons.dashboard,
               //CupertinoIcons.house,
               //color: Colors.green.shade300,
               size: MediaQuery.of(context).size.width / 4,
@@ -37,7 +37,7 @@ class _Login extends State<Login> {
               ),
             ),
             const SizedBox(
-              height: 50,
+              height: 30,
             ),
             Container(
               height: 120,
@@ -98,7 +98,7 @@ class _Login extends State<Login> {
               ),
             ),
             const SizedBox(
-              height: 20,
+              height: 10,
             ),
             Container(
               height: 120,
@@ -162,7 +162,7 @@ class _Login extends State<Login> {
               ),
             ),
             const SizedBox(
-              height: 50,
+              height: 20,
             ),
             ElevatedButton(
               onPressed: () {

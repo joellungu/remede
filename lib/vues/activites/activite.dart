@@ -3,7 +3,9 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:remede/main.dart';
+import 'package:remede/vues/anameneses/anamenese.dart';
 import 'package:remede/vues/consultation/consultation.dart';
+import 'package:remede/vues/laboratoire/laboratoire.dart';
 import 'package:remede/vues/menulateral/menu.dart';
 import 'package:remede/vues/secretariat.dart';
 import 'package:remede/vues/vouveaudossier/nouveaudossier.dart';
@@ -193,8 +195,8 @@ class _Activite extends State<Activite> with TickerProviderStateMixin {
           controller: controller,
           children: [
             Consultation(widget.nom, widget.matricule),
-            Icon(Icons.directions_bike),
-            Icon(Icons.directions_bike),
+            Anamenese(),
+            Laboratoire(),
             Icon(Icons.directions_bike),
           ],
         ),
