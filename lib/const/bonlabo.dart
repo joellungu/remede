@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:remede/main.dart';
 
 class BonLabo extends StatefulWidget {
   String? nom;
@@ -21,7 +22,7 @@ class _BonLabo extends State<BonLabo> {
           child: Column(
             children: [
               Container(
-                color: const Remede.codeUI.couleurPrincipale,
+                color: Remede.codeUI.couleurPrincipale,
                 //height: 40,
                 child: Padding(
                   padding: const EdgeInsets.only(

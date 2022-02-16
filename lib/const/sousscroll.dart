@@ -15,16 +15,25 @@ class SousScroll extends StatefulWidget {
 }
 
 class _SousScroll extends State<SousScroll> {
-  bool exp = true;
+  bool exp = false;
 
   @override
   Widget build(BuildContext context) {
-    return ExpansionPanelList(
+    return Container(
+      //height: 40,
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: Colors.grey.shade200,
+        ),
+      ),
+      child: ExpansionPanelList(
         expansionCallback: (int index, bool isExpanded) {
           setState(() {
             //_data[index].isExpanded = !isExpanded;
           });
         },
+        dividerColor: Colors.transparent,
+        elevation: 0,
         children: [
           ExpansionPanel(
             canTapOnHeader: true,
@@ -39,7 +48,7 @@ class _SousScroll extends State<SousScroll> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Icon(
-                          Icons.check_circle,
+                          widget.icon,//Icons.check_circle,
                           color: Remede.codeUI.couleurPrincipale,
                           size: 20,
                         ),
@@ -47,7 +56,7 @@ class _SousScroll extends State<SousScroll> {
                           width: 10,
                         ),
                         Text(
-                          "EXAMEN PHYSIQUE",
+                          widget.titre!,
                           style: TextStyle(
                             color: Colors.blue,
                             //size: 20,
@@ -66,14 +75,39 @@ class _SousScroll extends State<SousScroll> {
                   '12/12/2022',
                   style: TextStyle(color: Colors.green.shade700),
                 ),
-                trailing: const Icon(Icons.delete),
+                trailing: const Icon(Icons.edit, color: Colors.blue,),
                 onTap: () {
-                  setState(() {
-                    exp = exp ? false : true;
-                  });
+                  showDialog(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          title: Text(widget.titre!, style: TextStyle(color: Colors.blue,),),
+                          content: Container(
+                            height: 200,
+                            child: TextField(),
+                          ),
+                          actions: [
+                            IconButton(
+                              onPressed: () {},
+                              icon: Icon(
+                                Icons.check,
+                                color: Colors.green,
+                              ),
+                            ),
+                            IconButton(
+                              onPressed: () {},
+                              icon: Icon(
+                                Icons.close,
+                                color: Colors.red.shade700,
+                              ),
+                            )
+                          ],
+                        );
+                      });
                 }),
             isExpanded: exp,
           )
-        ]);
+        ],)
+    );
   }
 }

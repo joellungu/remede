@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:remede/main.dart';
 
 class PrescrireOrdonance extends StatefulWidget {
   String? nom;
@@ -21,7 +22,7 @@ class _PrescrireOrdonance extends State<PrescrireOrdonance> {
           child: Column(
             children: [
               Container(
-                color: const Remede.codeUI.couleurPrincipale,
+                color: Remede.codeUI.couleurPrincipale,
                 //height: 40,
                 child: Padding(
                   padding: const EdgeInsets.only(

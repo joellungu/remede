@@ -201,7 +201,7 @@ class _Consultation extends State<Consultation> {
             ),
             decoration: BoxDecoration(
               color: Remede.codeUI.couleurPrincipale,
-              border: Border(
+              border: const Border(
                 bottom: BorderSide(
                   color: Colors.grey,
                   width: 1,

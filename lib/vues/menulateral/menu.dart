@@ -79,7 +79,7 @@ class _MenuLateral extends State<MenuLateral> {
                   child: Column(
                     children: [
                       Container(
-                        color: const Remede.codeUI.couleurPrincipale,
+                        color: Remede.codeUI.couleurPrincipale,
                         //height: 40,
                         child: Padding(
                           padding: const EdgeInsets.only(
