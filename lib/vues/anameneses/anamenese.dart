@@ -1,7 +1,11 @@
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
+import 'package:remede/const/prescrireordonance.dart';
 
 class Anamenese extends StatefulWidget {
+  late String nom;
+  late String matricule;
+  Anamenese(this.nom, this.matricule);
   @override
   State<StatefulWidget> createState() {
     return _Anamenese();
@@ -30,9 +34,9 @@ class _Anamenese extends State<Anamenese> {
                       context: context,
                       builder: (BuildContext context) {
                         return Material(
-                          child: Padding(
-                            padding: EdgeInsets.only(),
-                            child: Column(),
+                          child: PrescrireOrdonance(
+                            nom: widget.nom,
+                            matricule: widget.matricule,
                           ),
                         );
                       },

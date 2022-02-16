@@ -1,7 +1,11 @@
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
+import 'package:remede/const/bonlabo.dart';
 
 class Laboratoire extends StatefulWidget {
+  String? nom;
+  String? matricule;
+  Laboratoire(this.nom, this.matricule);
   @override
   State<StatefulWidget> createState() {
     return _Laboratoire();
@@ -9,6 +13,7 @@ class Laboratoire extends StatefulWidget {
 }
 
 class _Laboratoire extends State<Laboratoire> {
+  DateTime date = DateTime.now();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,9 +33,10 @@ class _Laboratoire extends State<Laboratoire> {
                       context: context,
                       builder: (BuildContext context) {
                         return Material(
-                          child: Padding(
-                            padding: EdgeInsets.only(),
-                            child: Column(),
+                          child: BonLabo(
+                            nom: widget.nom,
+                            matricule: widget.matricule,
+                            date: date,
                           ),
                         );
                       },
