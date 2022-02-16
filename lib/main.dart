@@ -1,18 +1,18 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:remede/vues/accueil.dart';
 import 'package:remede/vues/splash.dart';
+import 'const/codeui.dart';
 import 'const/constante.dart';
 import 'vues/login/login.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
-    const SystemUiOverlayStyle(
+    SystemUiOverlayStyle(
       systemNavigationBarColor:
-          Color.fromRGBO(21, 114, 71, 1), // navigation bar color
-      statusBarColor: Color.fromRGBO(21, 114, 71, 1), // status bar color
+          Remede.codeUI.couleurPrincipale, // navigation bar color
+      statusBarColor: Remede.codeUI.couleurPrincipale, // status bar color
     ),
   );
   //
@@ -44,6 +44,8 @@ Future<void> load() async {
 class Remede extends StatelessWidget {
   Remede({Key? key, this.vue}) : super(key: key);
 
+  static CodeUI codeUI = CodeUI();
+
   Widget? vue;
   static Conts conts = Conts();
   static Map<String, dynamic> Transporteur = {
@@ -71,7 +73,7 @@ class Remede extends StatelessWidget {
     600: Color.fromRGBO(21, 114, 71, .7),
     700: Color.fromRGBO(21, 114, 71, .8),
     800: Color.fromRGBO(21, 114, 71, .9),
-    900: Color.fromRGBO(21, 114, 71, 1),
+    900: Remede.codeUI.couleurPrincipale,
   };
   //
 
@@ -87,7 +89,7 @@ class Remede extends StatelessWidget {
           systemOverlayStyle: SystemUiOverlayStyle.light,
         ),
         primarySwatch:
-            MaterialColor(const Color.fromRGBO(21, 114, 71, 1).value, couleur),
+            MaterialColor(Remede.codeUI.couleurPrincipale.value, couleur),
       ),
       home: vue,
     );

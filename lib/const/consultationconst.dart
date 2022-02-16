@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:remede/main.dart';
 
 class ConsultationConst extends StatefulWidget {
   String? nom;
@@ -21,7 +22,7 @@ class _ConsultationConst extends State<ConsultationConst> {
           child: Column(
             children: [
               Container(
-                color: const Color.fromRGBO(21, 114, 71, 1),
+                color: Remede.codeUI.couleurPrincipale,
                 //height: 40,
                 child: Padding(
                   padding: const EdgeInsets.only(

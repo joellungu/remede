@@ -1,6 +1,7 @@
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:remede/const/bonlabo.dart';
+import 'package:remede/main.dart';
 
 class Laboratoire extends StatefulWidget {
   String? nom;
@@ -123,14 +124,14 @@ class _Laboratoire extends State<Laboratoire> {
                 children: [
                   Icon(
                     Icons.check_circle,
-                    color: Color.fromRGBO(21, 114, 71, 1),
+                    color: Remede.codeUI.couleurPrincipale,
                   ),
                   SizedBox(
                     width: 5,
                   ),
                   Icon(
                     Icons.checklist_outlined,
-                    color: Color.fromRGBO(21, 114, 71, 1),
+                    color: Remede.codeUI.couleurPrincipale,
                   ),
                   SizedBox(
                     width: 5,
@@ -180,7 +181,7 @@ class _Laboratoire extends State<Laboratoire> {
                           onPressed: () {},
                           icon: Icon(
                             Icons.addchart_outlined,
-                            color: Color.fromRGBO(21, 114, 71, 1),
+                            color: Remede.codeUI.couleurPrincipale,
                           ),
                         )
                       ],
@@ -194,7 +195,7 @@ class _Laboratoire extends State<Laboratoire> {
                         Expanded(
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
+                            children: const [
                               Icon(
                                 Icons.check_circle_outline,
                                 color: Colors.yellow,
@@ -218,7 +219,7 @@ class _Laboratoire extends State<Laboratoire> {
                           onPressed: () {},
                           icon: Icon(
                             Icons.addchart_outlined,
-                            color: Color.fromRGBO(21, 114, 71, 1),
+                            color: Remede.codeUI.couleurPrincipale,
                           ),
                         )
                       ],
@@ -256,7 +257,7 @@ class _Laboratoire extends State<Laboratoire> {
                           onPressed: () {},
                           icon: Icon(
                             Icons.addchart_outlined,
-                            color: Color.fromRGBO(21, 114, 71, 1),
+                            color: Remede.codeUI.couleurPrincipale,
                           ),
                         )
                       ],

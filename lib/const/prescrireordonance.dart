@@ -21,7 +21,7 @@ class _PrescrireOrdonance extends State<PrescrireOrdonance> {
           child: Column(
             children: [
               Container(
-                color: const Color.fromRGBO(21, 114, 71, 1),
+                color: const Remede.codeUI.couleurPrincipale,
                 //height: 40,
                 child: Padding(
                   padding: const EdgeInsets.only(

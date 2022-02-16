@@ -1,6 +1,8 @@
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:remede/const/prescrireordonance.dart';
+import 'package:remede/const/sousscroll.dart';
+import 'package:remede/main.dart';
 
 class Anamenese extends StatefulWidget {
   late String nom;
@@ -75,7 +77,7 @@ class _Anamenese extends State<Anamenese> {
                 children: [
                   Icon(
                     Icons.check_circle,
-                    color: Color.fromRGBO(21, 114, 71, 1),
+                    color: Remede.codeUI.couleurPrincipale,
                   ),
                   SizedBox(
                     width: 5,
@@ -83,7 +85,7 @@ class _Anamenese extends State<Anamenese> {
                   Text(
                     "SYMPTOMES",
                     style: TextStyle(
-                      color: Color.fromRGBO(21, 114, 71, 1),
+                      color: Remede.codeUI.couleurPrincipale,
                       fontWeight: FontWeight.bold,
                     ),
                   )
@@ -129,7 +131,7 @@ class _Anamenese extends State<Anamenese> {
                               Text(
                                 "${date.day}/${date.month}/${date.year}/${date.hour}:${date.minute}",
                                 style: TextStyle(
-                                  color: Color.fromRGBO(21, 114, 71, 1),
+                                  color: Remede.codeUI.couleurPrincipale,
                                   fontWeight: FontWeight.bold,
                                 ),
                               )
@@ -164,40 +166,72 @@ class _Anamenese extends State<Anamenese> {
                         color: Colors.grey.shade200,
                       ),
                     ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Expanded(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Icon(
-                                Icons.edit,
-                                color: Colors.blue,
-                                size: 20,
-                              ),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Text(
-                                "ANTECEDENTS",
-                                style: TextStyle(
-                                  color: Colors.blue,
-                                  //size: 20,
-                                  fontWeight: FontWeight.normal,
+                    child: InkWell(
+                      onTap: () {
+                        //
+                        showDialog(
+                            context: context,
+                            builder: (context) {
+                              return AlertDialog(
+                                title: const Text("Modifier..."),
+                                content: Container(
+                                  height: 200,
+                                  child: TextField(),
                                 ),
-                              ),
-                            ],
+                                actions: [
+                                  IconButton(
+                                    onPressed: () {},
+                                    icon: Icon(
+                                      Icons.check,
+                                      color: Colors.green,
+                                    ),
+                                  ),
+                                  IconButton(
+                                    onPressed: () {},
+                                    icon: Icon(
+                                      Icons.close,
+                                      color: Colors.red.shade700,
+                                    ),
+                                  )
+                                ],
+                              );
+                            });
+                      },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Expanded(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Icon(
+                                  Icons.edit,
+                                  color: Colors.blue,
+                                  size: 20,
+                                ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Text(
+                                  "ANTECEDENTS",
+                                  style: TextStyle(
+                                    color: Colors.blue,
+                                    //size: 20,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                        Text(
-                          "Aucun  ",
-                          style: TextStyle(
-                            color: Colors.grey,
-                            fontWeight: FontWeight.normal,
+                          Text(
+                            "Aucun  ",
+                            style: TextStyle(
+                              color: Colors.grey,
+                              fontWeight: FontWeight.normal,
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                   Container(
@@ -372,6 +406,10 @@ class _Anamenese extends State<Anamenese> {
                       ],
                     ),
                   ),
+                  SousScroll(
+                    titre: "",
+                    icon: Icons.check,
+                  )
                 ],
               ),
             ),

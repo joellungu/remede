@@ -211,7 +211,7 @@ class _Accueil extends State<Accueil> {
                 child: Column(
                   children: [
                     Container(
-                      color: const Color.fromRGBO(21, 114, 71, 1),
+                      color: Remede.codeUI.couleurPrincipale,
                       //height: 40,
                       child: Padding(
                         padding: const EdgeInsets.only(
@@ -259,7 +259,7 @@ class _Accueil extends State<Accueil> {
       elevation: 1,
       child: Container(
         height: 80,
-        //color: Color.fromRGBO(21, 114, 71, 1),
+        //color: Remede.codeUI.couleurPrincipale,
         margin: EdgeInsets.zero,
         child: Stack(
           children: [
@@ -290,10 +290,10 @@ class _Accueil extends State<Accueil> {
                   height: 40,
                   width: 40,
                   alignment: Alignment.center,
-                  child: const Text(
+                  child: Text(
                     "35",
                     style: TextStyle(
-                      color: Color.fromRGBO(21, 114, 71, 1), //Colors.black,
+                      color: Remede.codeUI.couleurPrincipale, //Colors.black,
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
@@ -304,13 +304,13 @@ class _Accueil extends State<Accueil> {
                 ),
               ),
             ),
-            const Padding(
+            Padding(
               padding: EdgeInsets.only(right: 20),
               child: Align(
                 alignment: Alignment.centerRight,
                 child: Icon(
                   Icons.arrow_forward_ios,
-                  color: Color.fromRGBO(21, 114, 71, 1),
+                  color: Remede.codeUI.couleurPrincipale,
                 ),
               ),
             )

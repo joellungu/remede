@@ -162,7 +162,7 @@ class _Login extends State<Login> {
               ),
             ),
             const SizedBox(
-              height: 20,
+              height: 30,
             ),
             ElevatedButton(
               onPressed: () {

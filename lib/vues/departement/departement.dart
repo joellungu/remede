@@ -144,7 +144,7 @@ class _Departement extends State<Departement> {
                             child: Column(
                               children: [
                                 Container(
-                                  color: const Color.fromRGBO(21, 114, 71, 1),
+                                  color: Remede.codeUI.couleurPrincipale,
                                   //height: 40,
                                   child: Padding(
                                     padding: const EdgeInsets.only(
@@ -373,7 +373,7 @@ class _Departement extends State<Departement> {
                 child: Column(
                   children: [
                     Container(
-                      color: const Color.fromRGBO(21, 114, 71, 1),
+                      color: Remede.codeUI.couleurPrincipale,
                       //height: 40,
                       child: Padding(
                         padding: const EdgeInsets.only(
@@ -595,14 +595,14 @@ class _Departement extends State<Departement> {
           ),
         ),
       ),
-      child: const ListTile(
+      child: ListTile(
         title: Text(
           "MDMI HPUGD UGD HDJDL YGDL",
           style: TextStyle(
             fontWeight: FontWeight.bold,
           ),
         ),
-        subtitle: Text(
+        subtitle: const Text(
           "****-****-4562",
           style: TextStyle(
             fontWeight: FontWeight.normal,
@@ -613,7 +613,7 @@ class _Departement extends State<Departement> {
           "12",
           style: TextStyle(
             fontWeight: FontWeight.bold,
-            color: Color.fromRGBO(21, 114, 71, 1),
+            color: Remede.codeUI.couleurPrincipale,
             fontSize: 30,
           ),
         ),

@@ -2,6 +2,7 @@ import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:remede/const/consultationconst.dart';
 import 'package:remede/const/elementstyle.dart';
+import 'package:remede/main.dart';
 
 class Consultation extends StatefulWidget {
   String? nom;
@@ -199,7 +200,7 @@ class _Consultation extends State<Consultation> {
               ],
             ),
             decoration: BoxDecoration(
-              color: Color.fromRGBO(21, 114, 71, 1),
+              color: Remede.codeUI.couleurPrincipale,
               border: Border(
                 bottom: BorderSide(
                   color: Colors.grey,
@@ -222,14 +223,14 @@ class _Consultation extends State<Consultation> {
                 children: [
                   Icon(
                     Icons.check_circle,
-                    color: Color.fromRGBO(21, 114, 71, 1),
+                    color: Remede.codeUI.couleurPrincipale,
                   ),
                   SizedBox(
                     width: 5,
                   ),
                   Icon(
                     Icons.checklist_outlined,
-                    color: Color.fromRGBO(21, 114, 71, 1),
+                    color: Remede.codeUI.couleurPrincipale,
                   ),
                   SizedBox(
                     width: 5,
@@ -281,7 +282,7 @@ class _Consultation extends State<Consultation> {
                           onPressed: () {},
                           icon: Icon(
                             Icons.addchart_outlined,
-                            color: Color.fromRGBO(21, 114, 71, 1),
+                            color: Remede.codeUI.couleurPrincipale,
                           ),
                         )
                       ],
@@ -319,7 +320,7 @@ class _Consultation extends State<Consultation> {
                           onPressed: () {},
                           icon: Icon(
                             Icons.addchart_outlined,
-                            color: Color.fromRGBO(21, 114, 71, 1),
+                            color: Remede.codeUI.couleurPrincipale,
                           ),
                         )
                       ],
@@ -357,7 +358,7 @@ class _Consultation extends State<Consultation> {
                           onPressed: () {},
                           icon: Icon(
                             Icons.addchart_outlined,
-                            color: Color.fromRGBO(21, 114, 71, 1),
+                            color: Remede.codeUI.couleurPrincipale,
                           ),
                         )
                       ],
@@ -373,6 +374,8 @@ class _Consultation extends State<Consultation> {
           ElevatedButton(
             onPressed: () {},
             style: ButtonStyle(
+              padding: MaterialStateProperty.all(
+                  const EdgeInsets.only(left: 0, right: 0)),
               backgroundColor: MaterialStateProperty.all(
                 Colors.red.shade700,
               ),
