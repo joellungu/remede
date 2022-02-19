@@ -4,6 +4,8 @@ import 'package:remede/const/consultationconst.dart';
 import 'package:remede/const/elementstyle.dart';
 import 'package:remede/main.dart';
 
+import 'detailsconsultation.dart';
+
 class Consultation extends StatefulWidget {
   String? nom;
   String? matricule;
@@ -175,28 +177,38 @@ class _Consultation extends State<Consultation> {
                   ),
                 ),
                 Expanded(
-                    flex: 4,
-                    child: Container(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Icon(
-                            Icons.folder_open,
-                            color: Colors.white30,
+                  flex: 3,
+                  child: InkWell(
+                    onTap: () {
+                      //
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              DetailsConsultation(widget.nom, widget.matricule),
+                        ),
+                      );
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Icon(
+                          Icons.folder_open,
+                          color: Colors.white30,
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          "Consultation".toLowerCase(),
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white60,
                           ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Text(
-                            "Consultation".toLowerCase(),
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white60,
-                            ),
-                          ),
-                        ],
-                      ),
-                    )),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ],
             ),
             decoration: BoxDecoration(

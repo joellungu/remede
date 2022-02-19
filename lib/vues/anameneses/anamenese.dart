@@ -7,7 +7,8 @@ import 'package:remede/main.dart';
 class Anamenese extends StatefulWidget {
   late String nom;
   late String matricule;
-  Anamenese(this.nom, this.matricule);
+  DateTime? date;
+  Anamenese(this.nom, this.matricule, this.date);
   @override
   State<StatefulWidget> createState() {
     return _Anamenese();
@@ -162,22 +163,37 @@ class _Anamenese extends State<Anamenese> {
                   SousScroll(
                     titre: "ANTECEDENTS",
                     icon: Icons.check_circle,
+                    nom: widget.nom,
+                    matricule: widget.matricule,
+                    date: widget.date,
                   ),
                   SousScroll(
                     titre: "HISTOIRE DE LA MALADIE",
                     icon: Icons.check_circle,
+                    nom: widget.nom,
+                    matricule: widget.matricule,
+                    date: widget.date,
                   ),
                   SousScroll(
                     titre: "COMPLEMENT D'ANAMENESE",
                     icon: Icons.check_circle,
+                    nom: widget.nom,
+                    matricule: widget.matricule,
+                    date: widget.date,
                   ),
                   SousScroll(
                     titre: "DIAGNOSTIQUE",
                     icon: Icons.check_circle,
+                    nom: widget.nom,
+                    matricule: widget.matricule,
+                    date: widget.date,
                   ),
                   SousScroll(
                     titre: "EXAMEN PHYSIQUE",
                     icon: Icons.check_circle,
+                    nom: widget.nom,
+                    matricule: widget.matricule,
+                    date: widget.date,
                   )
                 ],
               ),

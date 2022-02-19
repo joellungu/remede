@@ -1,6 +1,7 @@
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:remede/const/bonlabo.dart';
+import 'package:remede/const/notelaboratoire.dart';
 import 'package:remede/main.dart';
 
 class Laboratoire extends StatefulWidget {
@@ -157,7 +158,7 @@ class _Laboratoire extends State<Laboratoire> {
                         Expanded(
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
+                            children: const [
                               Icon(
                                 Icons.check_circle_outline,
                                 color: Colors.yellow,
@@ -178,7 +179,21 @@ class _Laboratoire extends State<Laboratoire> {
                           ),
                         ),
                         IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            //
+                            showDialog<String>(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return Material(
+                                  child: NoteLabo(
+                                    nom: widget.nom,
+                                    matricule: widget.matricule,
+                                    date: date,
+                                  ),
+                                );
+                              },
+                            );
+                          },
                           icon: Icon(
                             Icons.addchart_outlined,
                             color: Remede.codeUI.couleurPrincipale,

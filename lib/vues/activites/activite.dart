@@ -195,7 +195,7 @@ class _Activite extends State<Activite> with TickerProviderStateMixin {
           controller: controller,
           children: [
             Consultation(widget.nom, widget.matricule),
-            Anamenese(widget.nom!, widget.matricule!),
+            Anamenese(widget.nom!, widget.matricule!, date),
             Laboratoire(widget.nom, widget.matricule),
             Icon(Icons.directions_bike),
           ],

@@ -1,12 +1,17 @@
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
+import 'package:remede/const/noteanamenese.dart';
 import 'package:remede/main.dart';
 
 class SousScroll extends StatefulWidget {
   String? titre;
   IconData? icon;
+  //
+  String? nom;
+  String? matricule;
+  DateTime? date;
 
-  SousScroll({this.icon, this.titre});
+  SousScroll({this.icon, this.titre, this.nom, this.matricule, this.date});
 
   @override
   State<StatefulWidget> createState() {
@@ -48,7 +53,7 @@ class _SousScroll extends State<SousScroll> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Icon(
-                          widget.icon,//Icons.check_circle,
+                          widget.icon, //Icons.check_circle,
                           color: Remede.codeUI.couleurPrincipale,
                           size: 20,
                         ),
@@ -75,39 +80,28 @@ class _SousScroll extends State<SousScroll> {
                   '12/12/2022',
                   style: TextStyle(color: Colors.green.shade700),
                 ),
-                trailing: const Icon(Icons.edit, color: Colors.blue,),
+                trailing: const Icon(
+                  Icons.edit,
+                  color: Colors.blue,
+                ),
                 onTap: () {
-                  showDialog(
-                      context: context,
-                      builder: (context) {
-                        return AlertDialog(
-                          title: Text(widget.titre!, style: TextStyle(color: Colors.blue,),),
-                          content: Container(
-                            height: 200,
-                            child: TextField(),
-                          ),
-                          actions: [
-                            IconButton(
-                              onPressed: () {},
-                              icon: Icon(
-                                Icons.check,
-                                color: Colors.green,
-                              ),
-                            ),
-                            IconButton(
-                              onPressed: () {},
-                              icon: Icon(
-                                Icons.close,
-                                color: Colors.red.shade700,
-                              ),
-                            )
-                          ],
-                        );
-                      });
+                  showDialog<String>(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return Material(
+                        child: NoteAnamenese(
+                          nom: widget.nom,
+                          matricule: widget.matricule,
+                          date: widget.date,
+                        ),
+                      );
+                    },
+                  );
                 }),
             isExpanded: exp,
           )
-        ],)
+        ],
+      ),
     );
   }
 }
